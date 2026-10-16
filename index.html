@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Code Crafters — smarter logistics, seamless movement, and reliable supply chain solutions.">
+  <title>Code Crafters | Smart Logistics Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy:#101d36;--navy2:#182b4d;--blue:#477bff;--cyan:#65d6d0;--ink:#18233a;--muted:#65718a;--light:#f5f8fc;--white:#fff;--line:#e5ebf4}
+    *{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+    body{font-family:"DM Sans",sans-serif;color:var(--ink);background:#fff;line-height:1.65}
+    h1,h2,h3,.brand{font-family:Manrope,sans-serif;letter-spacing:-.035em}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1160px,92%);margin:auto}
+    .nav-wrap{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.93);backdrop-filter:blur(14px);border-bottom:1px solid rgba(229,235,244,.8)}
+    nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-weight:800;font-size:1.28rem;display:flex;align-items:center;gap:10px;color:var(--navy)}
+    .brand-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;color:#fff;background:linear-gradient(135deg,var(--blue),#2c54c7);font-weight:800;box-shadow:0 7px 18px #477bff45}
+    .nav-links{display:flex;gap:28px;align-items:center;font-size:.93rem;color:#4f5c73;font-weight:600}
+    .nav-links a:hover{color:var(--blue)}
+    .nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:12px;padding:12px 19px;font-weight:700;transition:.2s;cursor:pointer;border:0}
+    .nav-cta,.btn-primary{background:var(--blue);color:#fff;box-shadow:0 8px 20px #477bff30}
+    .nav-cta:hover,.btn-primary:hover{background:#2f63e7;transform:translateY(-2px)}
+    .menu-btn{display:none;background:none;border:0;font-size:1.5rem;color:var(--navy)}
+    .hero{background:radial-gradient(circle at 85% 22%,#294a81 0,transparent 32%),linear-gradient(120deg,#0e1b34,#14294b 65%,#17345b);color:white;overflow:hidden;position:relative}
+    .hero:after{content:"";position:absolute;width:470px;height:470px;border:1px solid #ffffff15;border-radius:50%;right:-130px;bottom:-300px;box-shadow:0 0 0 50px #ffffff06,0 0 0 100px #ffffff04}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:45px;align-items:center;padding:90px 0 95px;position:relative;z-index:1}
+    .eyebrow{display:inline-flex;gap:9px;align-items:center;color:#a8c1ff;font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;font-weight:800;margin-bottom:22px}
+    .eyebrow:before{content:"";height:2px;width:24px;background:var(--cyan)}
+    h1{font-size:clamp(2.7rem,5vw,4.8rem);line-height:1.08;max-width:650px;margin-bottom:24px}
+    h1 span{color:var(--cyan)}
+    .hero-copy{color:#c2cee2;font-size:1.08rem;max-width:540px;margin-bottom:32px}
+    .hero-actions{display:flex;gap:13px;flex-wrap:wrap}
+    .btn-outline{border:1px solid #ffffff50;color:white;background:#ffffff0b}
+    .btn-outline:hover{background:#ffffff16}
+    .hero-note{display:flex;gap:24px;margin-top:37px;color:#b7c5dc;font-size:.85rem;flex-wrap:wrap}
+    .hero-note span{display:flex;align-items:center;gap:8px}.check{color:var(--cyan);font-weight:900}
+    .visual{position:relative;min-height:390px;display:grid;place-items:center}
+    .orbit{position:absolute;width:350px;height:350px;border:1px solid #ffffff20;border-radius:50%}
+    .orbit:before,.orbit:after{content:"";position:absolute;border:1px solid #ffffff13;border-radius:50%;inset:28px}
+    .orbit:after{inset:62px}
+    .route-line{position:absolute;width:290px;height:190px;border:2px dashed #65d6d088;border-radius:50%;transform:rotate(-26deg)}
+    .hub{width:154px;height:154px;border-radius:38px;background:linear-gradient(145deg,#5a8aff,#3156c6);display:grid;place-items:center;box-shadow:0 25px 70px #020b1e80;z-index:2;border:1px solid #ffffff55}
+    .hub svg{width:78px;height:78px}
+    .float-card{position:absolute;background:#fff;color:var(--ink);border-radius:16px;padding:14px 16px;box-shadow:0 18px 50px #030b1d45;z-index:3;min-width:155px}
+    .float-card small{display:block;color:var(--muted);font-size:.72rem;margin-bottom:4px}
+    .float-card strong{font-size:1rem}.float-card .mini{color:#17a99c;font-size:.75rem;font-weight:700}
+    .card-a{top:35px;right:0}.card-b{bottom:34px;left:0}.pin{position:absolute;top:75px;left:25px;background:var(--cyan);width:13px;height:13px;border-radius:50%;box-shadow:0 0 0 8px #65d6d022}.pin2{position:absolute;right:32px;bottom:80px;background:#8caeff;width:13px;height:13px;border-radius:50%;box-shadow:0 0 0 8px #8caeff22}
+    .trust-strip{border-bottom:1px solid var(--line);background:#fff}.trust-row{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:25px 0;color:#7a879d;font-size:.9rem;flex-wrap:wrap}.trust-row strong{color:var(--navy);font-size:1rem}
+    section{padding:88px 0}.section-head{text-align:center;max-width:690px;margin:0 auto 46px}.kicker{color:var(--blue);font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;font-weight:800;margin-bottom:12px}.section-head h2{font-size:clamp(2rem,3.4vw,3rem);line-height:1.15;color:var(--navy);margin-bottom:16px}.section-head p{color:var(--muted)}
+    .services{background:var(--light)}.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .service-card{background:#fff;padding:30px;border:1px solid var(--line);border-radius:20px;transition:.25s}.service-card:hover{transform:translateY(-5px);box-shadow:0 18px 45px #1b31550d;border-color:#cad8ff}
+    .icon-box{width:52px;height:52px;display:grid;place-items:center;background:#edf2ff;color:var(--blue);border-radius:15px;margin-bottom:22px}.icon-box svg{width:25px;height:25px}
+    .service-card h3{font-size:1.15rem;margin-bottom:10px;color:var(--navy)}.service-card p{font-size:.94rem;color:var(--muted);margin-bottom:18px}.learn{color:var(--blue);font-size:.9rem;font-weight:700}
+    .tracking{background:#fff}.tracking-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}.tracking-info h2{font-size:clamp(2rem,3.5vw,3.1rem);line-height:1.15;color:var(--navy);margin:12px 0 18px}.tracking-info p{color:var(--muted);margin-bottom:22px}.feature-list{list-style:none;display:grid;gap:12px;color:#3e4c64}.feature-list li{display:flex;gap:10px;align-items:flex-start}.feature-list .tick{color:#17a99c;font-weight:900}
+    .track-panel{padding:30px;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 22px 65px #18345a0c}.track-panel h3{font-size:1.3rem;color:var(--navy);margin-bottom:7px}.track-panel>p{color:var(--muted);font-size:.9rem;margin-bottom:22px}.track-form{display:flex;gap:10px}.track-form input,.contact-form input,.contact-form textarea,.contact-form select{width:100%;border:1px solid #dce4f0;border-radius:11px;padding:14px;font:inherit;outline:none;background:#fff}.track-form input:focus,.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-color:var(--blue);box-shadow:0 0 0 3px #477bff18}.track-result{display:none;margin-top:18px;padding:15px;border-radius:12px;background:#f0f5ff;color:#263d6a;font-size:.9rem}
+    .about{background:var(--navy);color:white}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.about .kicker{color:var(--cyan)}.about h2{font-size:clamp(2rem,3.5vw,3rem);line-height:1.15;margin:12px 0 20px}.about p{color:#c1cce0;margin-bottom:18px}.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.stat{border:1px solid #ffffff1c;background:#ffffff08;border-radius:17px;padding:24px}.stat strong{font-family:Manrope,sans-serif;font-size:2rem;color:var(--cyan);display:block}.stat span{color:#c1cce0;font-size:.88rem}
+    .team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}.member{border:1px solid var(--line);border-radius:16px;padding:21px 17px;background:#fff;min-height:145px}.avatar{height:39px;width:39px;display:grid;place-items:center;background:#edf2ff;color:var(--blue);font-weight:800;border-radius:12px;margin-bottom:14px}.member h3{font-size:.91rem;line-height:1.4;color:var(--navy);letter-spacing:-.02em}.member .role{display:block;color:var(--muted);font-size:.78rem;margin-top:7px}.member.leader{border-color:#a9bdff;background:linear-gradient(145deg,#f3f6ff,#fff)}
+    .team-note{text-align:center;color:var(--muted);margin-top:24px;font-size:.9rem}
+    .contact{background:var(--light)}.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px}.contact-copy h2{font-size:2.6rem;line-height:1.15;color:var(--navy);margin:10px 0 18px}.contact-copy p{color:var(--muted);margin-bottom:24px}.contact-item{display:flex;gap:13px;margin:18px 0;color:#4f5c73}.contact-item b{display:block;color:var(--navy)}.contact-form{padding:28px;background:#fff;border:1px solid var(--line);border-radius:20px;display:grid;gap:14px;box-shadow:0 15px 40px #182d4c08}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.contact-form label{font-size:.83rem;font-weight:700;color:#43516a;display:grid;gap:7px}.contact-form textarea{min-height:120px;resize:vertical}.contact-form .btn{width:max-content}.form-message{color:#168b7f;font-size:.9rem;display:none}
+    footer{background:#0b1529;color:#aab7ce;padding:28px 0}.footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.85rem}.footer-brand{color:white;font-weight:800;font-family:Manrope,sans-serif}.footer-links{display:flex;gap:20px}.footer-links a:hover{color:var(--cyan)}.disclaimer{font-size:.76rem;color:#7f8ca5;margin-top:10px}
+    @media(max-width:900px){.hero-grid,.tracking-grid,.about-grid,.contact-grid{grid-template-columns:1fr}.hero-grid{padding:70px 0}.visual{min-height:340px}.service-grid{grid-template-columns:repeat(2,1fr)}.team-grid{grid-template-columns:repeat(3,1fr)}.tracking-grid,.about-grid,.contact-grid{gap:35px}.trust-row{justify-content:center;text-align:center}}
+    @media(max-width:650px){nav{height:68px}.menu-btn{display:block}.nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:white;padding:20px 5%;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:18px}.nav-links.open{display:flex}.nav-cta{display:none}.hero-grid{padding:55px 0 65px}.hero-copy{font-size:1rem}.visual{transform:scale(.88);margin:-10px -20px}.service-grid,.team-grid{grid-template-columns:1fr}.team-grid{grid-template-columns:repeat(2,1fr)}section{padding:65px 0}.track-form{flex-direction:column}.form-row{grid-template-columns:1fr}.track-panel{padding:22px}.footer-row{flex-direction:column;align-items:flex-start}.contact-copy h2{font-size:2.2rem}}
+  </style>
+</head>
+<body>
+  <header class="nav-wrap">
+    <div class="container">
+      <nav aria-label="Main navigation">
+        <a class="brand" href="#home"><span class="brand-mark">CC</span> Code Crafters</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+        <div class="nav-links" id="navLinks">
+          <a href="#services">Services</a><a href="#tracking">Track Shipment</a><a href="#about">About Us</a><a href="#team">Our Team</a><a href="#contact">Contact</a>
+        </div>
+        <a class="nav-cta" href="#contact">Get in Touch ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Smarter logistics. Better business.</div>
+          <h1>Moving business <span>forward.</span></h1>
+          <p class="hero-copy">We connect every step of your supply chain with smarter planning, reliable transportation, and logistics solutions built around your business.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#services">Explore Our Services ↗</a><a class="btn btn-outline" href="#tracking">Track a Shipment</a></div>
+          <div class="hero-note"><span><b class="check">✓</b> Reliable coordination</span><span><b class="check">✓</b> Clear communication</span><span><b class="check">✓</b> Smarter operations</span></div>
+        </div>
+        <div class="visual" aria-label="Illustration of a connected logistics network">
+          <div class="orbit"></div><div class="route-line"></div><div class="pin"></div><div class="pin2"></div>
+          <div class="hub"><svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M12 36 50 15l38 21v39L50 91 12 75V36Z" stroke="white" stroke-width="4" stroke-linejoin="round"/><path d="m12 36 38 22 38-22M50 58v33M31 26l38 22v20L31 46V26Z" stroke="white" stroke-width="4" stroke-linejoin="round"/></svg></div>
+          <div class="float-card card-a"><small>Supply chain status</small><strong>Connected</strong><div class="mini">● Operations aligned</div></div>
+          <div class="float-card card-b"><small>Delivery coordination</small><strong>On the move ↗</strong><div class="mini">Smart route planning</div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip"><div class="container trust-row"><strong>One connected logistics experience</strong><span>Planning</span><span>Transportation</span><span>Warehousing</span><span>Visibility</span><span>Coordination</span></div></div>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head"><div class="kicker">What we do</div><h2>Logistics made simpler.</h2><p>Practical services designed to help businesses move goods, manage operations, and make better supply chain decisions.</p></div>
+        <div class="service-grid">
+          <article class="service-card"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h11v11H3zM14 11h4l3 3v4h-7z"/><circle cx="7.5" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg></div><h3>Transportation Management</h3><p>Coordinate shipments and plan efficient routes to support timely, organized deliveries.</p><a class="learn" href="#contact">Discuss your needs ↗</a></article>
+          <article class="service-card"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V8l9-5 9 5v13H3Z"/><path d="M8 21v-7h8v7M3 8h18M7 10h2m6 0h2"/></svg></div><h3>Warehousing & Storage</h3><p>Support inventory organization, storage planning, and smoother warehouse workflows.</p><a class="learn" href="#contact">Discuss your needs ↗</a></article>
+          <article class="service-card"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/><path d="m15 16 2 2 4-5"/></svg></div><h3>Shipment Coordination</h3><p>Keep shipment details organized and help teams stay aligned from dispatch to delivery.</p><a class="learn" href="#contact">Discuss your needs ↗</a></article>
+          <article class="service-card"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5M8 11h6M11 8v6"/></svg></div><h3>Supply Chain Visibility</h3><p>Bring key logistics information into focus to support clearer, faster decisions.</p><a class="learn" href="#contact">Discuss your needs ↗</a></article>
+          <article class="service-card"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="8"/></svg></div><h3>Inventory Support</h3><p>Improve stock organization with thoughtful processes for inventory handling and control.</p><a class="learn" href="#contact">Discuss your needs ↗</a></article>
+          <article class="service-card"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5m0 14h16M7 15l4-4 3 2 5-6"/><path d="M16 7h3v3"/></svg></div><h3>Logistics Consulting</h3><p>Identify process gaps and explore practical ways to improve cost, time, and reliability.</p><a class="learn" href="#contact">Discuss your needs ↗</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="tracking" id="tracking">
+      <div class="container tracking-grid">
+        <div class="tracking-info"><div class="kicker">Shipment visibility</div><h2>Stay informed at every step.</h2><p>Clear shipment information helps teams plan ahead and communicate with confidence. Enter a reference number to try the tracking interface.</p><ul class="feature-list"><li><span class="tick">✓</span><span>Easy-to-use shipment reference lookup</span></li><li><span class="tick">✓</span><span>Designed for clear status communication</span></li><li><span class="tick">✓</span><span>Ready to connect to a real tracking system</span></li></ul></div>
+        <div class="track-panel"><h3>Track your shipment</h3><p>Enter your tracking number below.</p><form class="track-form" id="trackForm"><input id="trackingNumber" aria-label="Tracking number" placeholder="e.g. CC-102458" required><button class="btn btn-primary" type="submit">Track Shipment ↗</button></form><div class="track-result" id="trackResult" role="status"></div><p class="disclaimer">Demo interface: live shipment data is not connected yet.</p></div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div><div class="kicker">About Code Crafters</div><h2>Built around better movement.</h2><p>Code Crafters is a logistics-focused project built around the idea that well-connected information, thoughtful planning, and clear communication can make supply chains work better.</p><p>Our goal is to present logistics in a simple, organized way and explore how digital tools can support smarter operations.</p><a href="#team" class="btn btn-primary">Meet the Team ↗</a></div>
+        <div class="stat-grid"><div class="stat"><strong>01</strong><span>Connected planning</span></div><div class="stat"><strong>02</strong><span>Clear communication</span></div><div class="stat"><strong>03</strong><span>Smarter workflows</span></div><div class="stat"><strong>04</strong><span>Customer-focused thinking</span></div></div>
+      </div>
+    </section>
+
+    <section id="team">
+      <div class="container">
+        <div class="section-head"><div class="kicker">The people behind the project</div><h2>Meet the Code Crafters team.</h2><p>This project is presented under the supervision of the following team members.</p></div>
+        <div class="team-grid">
+          <article class="member leader"><div class="avatar">IO</div><h3>Ibrahim Othman Ibrahim Ahmed</h3><span class="role">Team Leader</span></article>
+          <article class="member"><div class="avatar">MA</div><h3>Mohamed Ashraf Ibrahim Yosry</h3><span class="role">Team Member</span></article>
+          <article class="member"><div class="avatar">YE</div><h3>Youssef Elsayed Ahmed Elsayed</h3><span class="role">Team Member</span></article>
+          <article class="member"><div class="avatar">YE</div><h3>Yahya Elsayed Kamal Ibrahim</h3><span class="role">Team Member</span></article>
+          <article class="member"><div class="avatar">MM</div><h3>Moaz Mohamed Ali Mohamed</h3><span class="role">Team Member</span></article>
+          <article class="member"><div class="avatar">MH</div><h3>Menna Hassan Mohamed Tolba</h3><span class="role">Team Member</span></article>
+          <article class="member"><div class="avatar">EM</div><h3>Essam Moneim Essam Haroon</h3><span class="role">Team Member</span></article>
+          <article class="member"><div class="avatar">YM</div><h3>Yasmine Mohamed Amin Mohamed</h3><span class="role">Team Member</span></article>
+          <article class="member"><div class="avatar">AA</div><h3>Arwa Ashraf El-Sayed Idrees</h3><span class="role">Team Member</span></article>
+          <article class="member"><div class="avatar">SA</div><h3>Shahenda Ahmed Khalil</h3><span class="role">Team Member</span></article>
+        </div>
+        <p class="team-note">Created collaboratively by the Code Crafters team.</p>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy"><div class="kicker">Let's connect</div><h2>Have a logistics challenge?</h2><p>Tell us what you need. We would be happy to hear about your project, questions, or ideas.</p><div class="contact-item"><div class="icon-box">✉</div><div><b>Email</b><span>Contact details can be added before publishing.</span></div></div><div class="contact-item"><div class="icon-box">⌖</div><div><b>Location</b><span>Available for project inquiries</span></div></div></div>
+        <form class="contact-form" id="contactForm"><div class="form-row"><label>Full Name<input name="name" placeholder="Your name" required></label><label>Email Address<input name="email" type="email" placeholder="you@example.com" required></label></div><label>What can we help with?<select name="topic"><option>Transportation</option><option>Warehousing</option><option>Shipment coordination</option><option>Supply chain visibility</option><option>General inquiry</option></select></label><label>Your Message<textarea name="message" placeholder="Tell us a little about your needs..." required></textarea></label><button class="btn btn-primary" type="submit">Send Message ↗</button><p class="form-message" id="formMessage">Thanks! This demo form is ready to be connected to an email or backend service.</p><p class="disclaimer">Demo form: messages are not sent or stored.</p></form>
+      </div>
+    </section>
+  </main>
+  <footer><div class="container"><div class="footer-row"><a class="footer-brand" href="#home">Code Crafters</a><span>Smarter logistics. Better business.</span><div class="footer-links"><a href="#services">Services</a><a href="#about">About</a><a href="#team">Team</a><a href="#contact">Contact</a></div></div><p class="disclaimer">© <span id="year"></span> Code Crafters. Student project concept. Tracking and contact forms are demonstration interfaces.</p></div></footer>
+  <script>
+    const menuBtn=document.getElementById('menuBtn');
+    const navLinks=document.getElementById('navLinks');
+    menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+    document.getElementById('year').textContent=new Date().getFullYear();
+    document.getElementById('trackForm').addEventListener('submit',e=>{
+      e.preventDefault();
+      const ref=document.getElementById('trackingNumber').value.trim();
+      const result=document.getElementById('trackResult');
+      result.style.display='block';
+      result.textContent=`Reference ${ref} received. This website is a demo and is not connected to live shipment records yet.`;
+    });
+    document.getElementById('contactForm').addEventListener('submit',e=>{
+      e.preventDefault();
+      document.getElementById('formMessage').style.display='block';
+    });
+  </script>
+</body>
+</html>
